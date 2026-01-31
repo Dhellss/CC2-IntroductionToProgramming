@@ -1,0 +1,59 @@
+
+package pkg8.employee.payroll.system;
+
+public class EmployeePayrollSystem {
+    public static void main(String[] args) {
+        //Creating Employee objects and print employee details
+        System.out.println("=============================================");
+        Employee Justin = new Employee("25-0147-879", "Justin", 50, 8);
+        System.out.println("Employee 1:");
+        System.out.println(Justin.displayEmployeeDetails());
+        
+        Employee Zeius = new Employee("25-0446-506", "Zeius", 8000, 4);
+        System.out.println("\nEmployee 2:");
+        System.out.println(Justin.displayEmployeeDetails());
+        System.out.println("=============================================\n\n");
+        
+        //Print employee details with salary
+        System.out.println("Calculating Salaries.....");
+        System.out.println("\nEmployee Details:");
+        System.out.println("\n");
+        System.out.println(Justin.displayEmployeeDetails());
+        System.out.print("Salary: ");
+        System.out.println(Justin.calculateSalary(Justin.hourlyWage, Justin.hoursWorked));
+        System.out.println("\n");
+        System.out.println(Zeius.displayEmployeeDetails());
+        System.out.print("Salary: ");
+        System.out.println(Zeius.calculateSalary(Zeius.hourlyWage, Zeius.hoursWorked));
+    }
+    
+}
+
+class Employee{
+    //Create Employee attributes
+    String employeeID;
+    String name;
+    double hourlyWage;
+    double hoursWorked;
+    
+    //Create Employee constructor
+    Employee(String employeeID, String name, double hourlyWage, double hoursWorked){
+        this.employeeID = employeeID;
+        this.name = name;
+        this.hourlyWage = hourlyWage;
+        this.hoursWorked = hoursWorked;
+    }
+    
+    //Calculates the salary
+    double calculateSalary(double hourlyWage, double hoursWorked){
+        return hourlyWage * hoursWorked;
+    }
+    
+    //Prints Employee details
+    String displayEmployeeDetails(){
+        return "ID: " + employeeID + 
+               "\nName: " + name + 
+               "\nHourly Wage: " + hourlyWage + 
+               "\nHours Worked: " + hoursWorked;
+    }
+}
